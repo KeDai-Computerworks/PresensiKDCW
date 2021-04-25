@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#0095ff</color>
+    <color name="primarydark">#3e70bf</color>
+    <color name="primary2">#70a9fc</color>
+    <color name="primarydark2">#5295fe</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray">#8A8989</color>
+    <color name="background_input">#F6F6F6</color>
+</resources>
