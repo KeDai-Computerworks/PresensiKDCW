@@ -1,10 +1,8 @@
 package id.charles.presensikdcw.model;
 
-public class ModelLogin {
-
+public class Agenda {
     private int id;
     private String nama;
-    private int jabatan;
 
     public int getId() {
         return id;
@@ -12,9 +10,5 @@ public class ModelLogin {
 
     public String getNama() {
         return nama;
-    }
-
-    public int getJabatan() {
-        return jabatan;
     }
 }

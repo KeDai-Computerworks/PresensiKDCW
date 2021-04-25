@@ -1,12 +1,11 @@
 package id.charles.presensikdcw.api;
 
-
 import java.util.List;
 
-import id.charles.presensikdcw.model.ModeLoglAbsensi;
-import id.charles.presensikdcw.model.ModelAbsensi;
-import id.charles.presensikdcw.model.ModelKegiatan;
+import id.charles.presensikdcw.model.ModeLogPresensi;
+import id.charles.presensikdcw.model.ModelAgenda;
 import id.charles.presensikdcw.model.ModelLogin;
+import id.charles.presensikdcw.model.ModelPresensi;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -16,29 +15,29 @@ import retrofit2.http.Path;
 
 public interface ApiInterface {
 
-    @GET("agendas")
-    Call<List<ModelKegiatan>> kegiatan();
+    @FormUrlEncoded
+    @POST("login")
+    Call<ModelLogin> login(@Field("email") String email,
+                           @Field("password") String pass);
 
-    @GET("ceknoreg/{noreg}")
-    Call<ModeLoglAbsensi> logAbsensi(@Path("noreg") String noReg);
+    @GET("agendas")
+    Call<List<ModelAgenda>> kegiatan();
 
     @FormUrlEncoded
     @POST("presensi")
-    Call<ModelAbsensi> absensi(@Field("agenda") int agenda,
-                               @Field("catatan") String catatan,
-                               @Field("created_by") int created);
+    Call<ModelPresensi> absensi(@Field("agenda") int agenda,
+                                @Field("catatan") String catatan,
+                                @Field("created_by") int created);
+
+    @GET("presensis")
+    Call<List<ModelPresensi>> presensi();
+
+    @GET("ceknoreg/{noreg}")
+    Call<ModeLogPresensi> logAbsensi(@Path("noreg") String noReg);
 
     @FormUrlEncoded
     @POST("logpresensi")
-    Call<ModeLoglAbsensi> logAbsensi(@Field("id_anggota") int idAnggota,
-                                  @Field("id_absensi") int idAbsensi);
-    @FormUrlEncoded
-    @POST("login")
-    Call<ModelLogin> logAbsensi(@Field("email") String email,
-                                @Field("password") String pass);
-
-    @GET("presensis")
-    Call<List<ModelKegiatan>> presensi();
-
+    Call<ModeLogPresensi> logAbsensi(@Field("id_anggota") int idAnggota,
+                                     @Field("id_presensi") int idAbsensi);
 
 }

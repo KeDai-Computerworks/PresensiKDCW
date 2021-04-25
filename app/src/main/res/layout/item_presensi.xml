@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cv_kegiatan"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cv_presensi"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="10dp"
-    android:layout_marginTop="5dp">
+    android:layout_marginTop="5dp"
+    android:elevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,38 +16,28 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="15dp"
             android:layout_marginStart="25dp"
-            android:text="title"
+            android:layout_marginTop="18dp"
             android:textColor="@color/primarydark"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="title" />
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/tv_created"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginEnd="30dp"-->
-        <!--            android:layout_marginBottom="10dp"-->
-        <!--            android:gravity="end"-->
-        <!--            android:text="date"-->
-        <!--            android:textColor="@color/primarydark"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/tv_title" />-->
+        <TextView
+            android:id="@+id/tv_created"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="end"
+            android:textColor="@color/primarydark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            app:layout_goneMarginBottom="24dp"
+            tools:text="date" />
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/tv_updated"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginEnd="30dp"-->
-        <!--            android:layout_marginBottom="10dp"-->
-        <!--            android:gravity="end"-->
-        <!--            android:text="date"-->
-        <!--            android:textColor="@color/primarydark"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/tv_created" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

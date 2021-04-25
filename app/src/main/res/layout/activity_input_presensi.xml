@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="50dp"
     android:paddingTop="50dp"
-    tools:context=".InputPresensiActivity">
+    tools:context=".ui.InputPresensiActivity">
 
     <TextView
         android:id="@+id/tv_title_Presensi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Tambah Agenda"
+        android:text="@string/tambah_presensi"
         android:textColor="@color/primarydark"
         android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,8 +26,6 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_title_Presensi">
 
     </Spinner>
-
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etc"
@@ -47,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
-            android:hint="Catatan"
+            android:hint="@string/catatan"
             android:lines="3" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -58,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/primary"
-        android:text="simpan"
+        android:text="@string/simpan"
         app:layout_constraintTop_toBottomOf="@+id/etc" />
 
 
