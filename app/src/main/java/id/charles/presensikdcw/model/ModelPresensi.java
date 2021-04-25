@@ -17,7 +17,7 @@ public class ModelPresensi {
     @SerializedName("created_by")
     private int createdBy;
 
-    @SerializedName("update_at")
+    @SerializedName("updated_at")
     private String tglPresensi;
 
     public String getStatus() {

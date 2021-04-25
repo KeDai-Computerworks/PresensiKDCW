@@ -1,10 +1,17 @@
 package id.charles.presensikdcw.ui;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,11 +36,16 @@ public class MainActivity extends AppCompatActivity {
     private rvPresensiAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView rvAgenda;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setTitle("Loading..."); // Setting Title
+        progressDialog.show();
+        progressDialog.setCancelable(false);
 
         sessionManager = new SessionManager(getApplicationContext());
         if (!sessionManager.isLogin()) {
@@ -63,12 +75,17 @@ public class MainActivity extends AppCompatActivity {
                     layoutManager = new LinearLayoutManager(getApplicationContext());
                     rvAgenda.setLayoutManager(layoutManager);
                     rvAgenda.setAdapter(adapter);
+                    progressDialog.dismiss();
                 }
             }
 
             @Override
             public void onFailure(Call<List<ModelPresensi>> call, Throwable t) {
-
+                Toast.makeText(MainActivity.this, "Gagal menghubungi server", Toast.LENGTH_SHORT).show();
+                Handler handler = new Handler();
+                handler.postDelayed(() -> {
+                    progressDialog.dismiss();
+                }, 1500);
             }
         });
     }
@@ -78,5 +95,21 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         getPresensi();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.profile_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.toProfile) {
+            startActivity(new Intent(this, ProfileActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -5,12 +5,15 @@
     android:id="@+id/cv_presensi"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="3dp"
     android:layout_marginTop="5dp"
-    android:elevation="10dp">
+    android:elevation="10dp"
+    app:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/bg">
 
         <TextView
             android:id="@+id/tv_title"

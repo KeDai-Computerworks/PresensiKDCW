@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ModelLogin> call, Throwable t) {
-                Toast.makeText(LoginActivity.this, "Periksa koneksi internet anda", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Gagal Login", Toast.LENGTH_SHORT).show();
 
             }
         });
