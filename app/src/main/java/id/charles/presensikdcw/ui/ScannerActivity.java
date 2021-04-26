@@ -53,7 +53,7 @@ public class ScannerActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        logPresensi("891.KD-LB.XIX.20");
+                        logPresensi(result.getText());
                     }
                 });
             }
