@@ -64,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     if (login.getJabatan() == 8) {
+                        Toast.makeText(LoginActivity.this, "Berhasil Login", Toast.LENGTH_SHORT).show();
                         sessionManager.CreatLoginSession(login.getNama(), String.valueOf(login.getId()));
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
@@ -81,5 +82,11 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        onDestroy();
     }
 }

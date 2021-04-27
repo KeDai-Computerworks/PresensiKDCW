@@ -93,7 +93,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        if (!sessionManager.isLogin()) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+        }
         getPresensi();
     }
 
